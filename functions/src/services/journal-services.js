@@ -12,12 +12,15 @@ export const addJournal = async (newJournal) => {
 
 export const getAllJournals = async () => {
   try {
+  //capturing all off the journal collection
     const snapshot = await journalCollection.get();
+  //accessing just the data I entered
     const journals = snapshot.docs.map((doc) => {
       let journal = doc.data();
       journal.id = doc.id;
       return journal;
     });
+  //returning an array of journal entries
     return journals
   } catch (err) {
     console.error(err);

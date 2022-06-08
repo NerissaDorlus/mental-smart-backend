@@ -11,6 +11,7 @@ journalRouter.post("/", async (req, res) => {
   const newJournal = {
     feeling: req.body.feeling,
     willTalkTo: req.body.willTalkTo,
+    entryDate: new Date()
   };
   await addJournal(newJournal);
   res.status(201).send("Success");
