@@ -1,3 +1,5 @@
+// import { } from "firebase-admin/firestore"
+import admin from "firebase-admin";
 import { Router } from "express";
 import { addJournal, getAllJournals } from "../services/journal-services.js";
 
@@ -7,12 +9,24 @@ journalRouter.post("/", async (req, res) => {
   if (!req.body || !req.body.feeling || !req.body.willTalkTo) {
     res.status(401).send("❌Invalid request❌");
     return;
-  }
+  }  
+
+  let timestamp = admin.firestore.FieldValue.serverTimestamp();
+
   const newJournal = {
     feeling: req.body.feeling,
     willTalkTo: req.body.willTalkTo,
-    entryDate: new Date()
+    entrydate: timestamp
+    
   };
+
+  const { inputedEmail } = req.body
+
+  if(inputedEmail){
+    newJournal.email  = inputedEmail
+  }
+  
+  
   await addJournal(newJournal);
   res.status(201).send("Success");
 });
