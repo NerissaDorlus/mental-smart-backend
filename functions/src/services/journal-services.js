@@ -18,6 +18,7 @@ export const getAllJournals = async () => {
     const journals = snapshot.docs.map((doc) => {
       let journal = doc.data();
       journal.id = doc.id;
+      journal.entryDate = journal.entryDate.toDate().toDateString()
       return journal;
     });
   //returning an array of journal entries

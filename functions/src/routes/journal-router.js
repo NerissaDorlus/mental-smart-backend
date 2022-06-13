@@ -16,7 +16,7 @@ journalRouter.post("/", async (req, res) => {
   const newJournal = {
     feeling: req.body.feeling,
     willTalkTo: req.body.willTalkTo,
-    entrydate: timestamp
+    entryDate: timestamp
     
   };
 

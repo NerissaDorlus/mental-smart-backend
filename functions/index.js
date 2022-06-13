@@ -14,9 +14,9 @@ app.use("/journals", journalRouter)
 
 
 //firebase functions
-// export const api = functions.https.onRequest(app);
+export const api = functions.https.onRequest(app);
 
 //local
-app.listen(3030, () => {
-  console.log("Listening on http://localhost:3030...");
-});
+// app.listen(3030, () => {
+//   console.log("Listening on http://localhost:3030...");
+// });
