@@ -13,6 +13,7 @@ journalRouter.post("/", async (req, res) => {
 
   let timestamp = admin.firestore.FieldValue.serverTimestamp();
 
+
   const newJournal = {
     feeling: req.body.feeling,
     willTalkTo: req.body.willTalkTo,
@@ -24,6 +25,12 @@ journalRouter.post("/", async (req, res) => {
 
   if(inputedEmail){
     newJournal.email  = inputedEmail
+  }
+
+  const {userName} = req.body
+
+  if(userName){
+    newJournal.name = userName
   }
   
   
