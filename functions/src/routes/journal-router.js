@@ -30,7 +30,7 @@ journalRouter.post("/", async (req, res) => {
   const {userName} = req.body
 
   if(userName){
-    newJournal.name = userName
+    newJournal.displayName = userName
   }
   
   

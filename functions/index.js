@@ -2,7 +2,7 @@ import express from "express";
 import functions from "firebase-functions";
 import {journalRouter} from "./src/routes/journal-router.js"
 import cors from "cors"
-import { authorize } from "./src/authorization.js";
+// import { authorize } from "./src/authorization.js";
 
 // import { userRouter } from "./src/routes/user-router.js";
 
